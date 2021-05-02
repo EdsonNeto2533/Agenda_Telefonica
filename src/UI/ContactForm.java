@@ -30,9 +30,15 @@ public class ContactForm extends JFrame {
         SalvarBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mcontactbussiness.save(NomeTextField.getText(), TelefoneTextField.getText());
-                new MainForm();
-                dispose();
+                try {
+                    mcontactbussiness.save(NomeTextField.getText(), TelefoneTextField.getText());
+                    new MainForm();
+                    dispose();
+                }   catch (Exception exception){
+                    //get message na exceção vai pegar a mensagem q definimos la no validate
+                    JOptionPane.showMessageDialog(new JFrame() , exception.getMessage());
+                }
+
             }
         });
 
