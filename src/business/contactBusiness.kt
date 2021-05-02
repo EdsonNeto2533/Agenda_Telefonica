@@ -33,6 +33,8 @@ class contactBusiness{
 
     fun delete(Nome: String, Telefone: String){
         validateRemove(Nome, Telefone)
+        val contact = contactEntity(Nome , Telefone)
+        contactRepository.contactRemove(contact)
     }
 
     fun getList(): List<contactEntity>{
